@@ -27,9 +27,9 @@ public class FileReader {
                 }
             }
         } catch (FileNotFoundException e) {
-
+            e.printStackTrace();
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
 
 
@@ -43,9 +43,9 @@ public class FileReader {
             fileContent = String.valueOf(profile.getPhone());
             fileOutputStream.write(fileContent.getBytes());
         } catch (FileNotFoundException e) {
-
+            e.printStackTrace();
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
 
 
