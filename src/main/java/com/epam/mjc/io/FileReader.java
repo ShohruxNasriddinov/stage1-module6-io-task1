@@ -7,33 +7,32 @@ public class FileReader {
 
     public Profile getDataFromFile(File file) {
         Profile profile = new Profile();
-        // reading the content of file
+
         try(FileInputStream fileInputStream = new FileInputStream(file)) {
             InputStreamReader isr = new InputStreamReader(fileInputStream);
             BufferedReader br = new BufferedReader(isr);
-//            int ch = fileInputStream.read();
             String line;
             while((line = br.readLine()) !=null) {
                 if (line.startsWith("Name: ")){
-                    profile.setName(line.substring(7));
+                    profile.setName(line.substring(6));
                 }
                 if (line.startsWith("Age: ")){
-                    profile.setAge(Integer.valueOf(line.substring(6)));
+                    profile.setAge(Integer.valueOf(line.substring(5)));
                 }
                 if (line.startsWith("Email: ")){
-                    profile.setEmail(line.substring(8));
+                    profile.setEmail(line.substring(7));
                 }
                 if (line.startsWith("Phone: ")){
-                    profile.setPhone(Long.valueOf(line.substring(8)));
+                    profile.setPhone(Long.valueOf(line.substring(7)));
                 }
             }
         } catch (FileNotFoundException e) {
-            // exception handling
+
         } catch (IOException e) {
-            // exception handling
+
         }
 
-        // write the content in file
+
         try(FileOutputStream fileOutputStream = new FileOutputStream(file)) {
             String fileContent = profile.getName();
             fileOutputStream.write(fileContent.getBytes());
@@ -44,13 +43,12 @@ public class FileReader {
             fileContent = String.valueOf(profile.getPhone());
             fileOutputStream.write(fileContent.getBytes());
         } catch (FileNotFoundException e) {
-            // exception handling
+
         } catch (IOException e) {
-            // exception handling
+
         }
 
 
         return profile;
-//        return new Profile();
     }
 }
