@@ -35,13 +35,13 @@ public class FileReader {
 
         // write the content in file
         try(FileOutputStream fileOutputStream = new FileOutputStream(file)) {
-            String fileContent ="Name: " + profile.getName();
+            String fileContent = profile.getName();
             fileOutputStream.write(fileContent.getBytes());
-            fileContent ="Age: " + profile.getAge();
+            fileContent = String.valueOf(profile.getAge());
             fileOutputStream.write(fileContent.getBytes());
-            fileContent ="Email: " + profile.getEmail();
+            fileContent =  profile.getEmail();
             fileOutputStream.write(fileContent.getBytes());
-            fileContent ="Phone: " + profile.getPhone();
+            fileContent = String.valueOf(profile.getPhone());
             fileOutputStream.write(fileContent.getBytes());
         } catch (FileNotFoundException e) {
             // exception handling
@@ -51,5 +51,6 @@ public class FileReader {
 
 
         return profile;
+//        return new Profile();
     }
 }
